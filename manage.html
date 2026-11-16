@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>Manage Booking | Pragnesh's Salon</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+  <script defer src="supabase-config.js"></script>
+  <script defer src="manage.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="brand">
+        <span class="brand-icon">✂</span>
+        <div>
+          <h1>Pragnesh's Salon</h1>
+          <small>Manage Your Booking</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section class="booking-card">
+
+      <h2>Manage Your Appointment</h2>
+      <p class="muted">
+        Reschedule or cancel your appointment below.
+      </p>
+
+      <p id="manageStatus" role="status">
+        Loading your booking...
+      </p>
+
+      <div id="bookingDetails" class="hidden">
+        <div class="summary">
+          <h3 id="serviceName"></h3>
+          <p id="appointmentDate"></p>
+          <p id="appointmentTime"></p>
+        </div>
+
+        <div id="manageActions" class="manage-actions">
+          <button class="primary" id="rescheduleBtn">
+            Reschedule Appointment
+          </button>
+
+          <button class="secondary danger-button"
+                  id="cancelBtn">
+            Cancel Appointment
+          </button>
+        </div>
+      </div>
+
+      <div id="reschedulePanel" class="hidden">
+        <h3>Choose a New Appointment</h3>
+
+        <label for="newDate">New Date</label>
+        <input type="date" id="newDate">
+
+        <h4>Available Times</h4>
+        <div id="newSlots" class="time-grid"></div>
+
+        <div class="actions">
+          <button class="secondary" id="backBtn">
+            Back
+          </button>
+          <button class="primary" id="saveNewTime"
+                  disabled>
+            Confirm New Time
+          </button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>Pragnesh's Salon · Book online</footer>
+</body>
+</html>

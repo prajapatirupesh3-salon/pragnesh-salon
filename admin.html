@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Admin | Pragnesh's Salon</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+  <script defer src="supabase-config.js"></script>
+  <script defer src="admin.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="brand">
+        <span class="brand-icon">✂</span>
+        <div>
+          <h1>Pragnesh's Salon</h1>
+          <small>Admin Dashboard</small>
+        </div>
+      </div>
+      <button id="logoutBtn"
+              class="secondary hidden">Log Out</button>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+
+    <section id="loginSection" class="booking-card login-card">
+      <h2>Admin Login</h2>
+      <p class="muted">Sign in to manage your salon.</p>
+
+      <form id="loginForm">
+        <label for="adminEmail">Email</label>
+        <input id="adminEmail" type="email"
+               autocomplete="username" required>
+
+        <label for="adminPassword">Password</label>
+        <input id="adminPassword" type="password"
+               autocomplete="current-password" required>
+
+        <button class="primary full-button"
+                type="submit">Sign In</button>
+        <p id="loginMessage" class="muted"
+           role="status"></p>
+      </form>
+    </section>
+
+    <section id="dashboardSection" class="hidden">
+
+      <div class="dashboard-heading">
+        <div>
+          <span class="eyebrow">SALON MANAGEMENT</span>
+          <h2>Dashboard</h2>
+          <p class="muted">Manage bookings and availability.</p>
+        </div>
+      </div>
+
+      <div class="booking-card">
+        <label for="adminDate">Select a date</label>
+        <input type="date" id="adminDate">
+
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <small>Appointments</small>
+            <strong id="totalBookings">0</strong>
+          </div>
+          <div class="stat-card">
+            <small>Haircuts</small>
+            <strong id="hairBookings">0</strong>
+          </div>
+          <div class="stat-card">
+            <small>Blocked periods</small>
+            <strong id="blockedCount">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <section class="booking-card">
+        <div class="section-title">
+          <h3>Appointments</h3>
+          <button id="refreshBtn" class="secondary">
+            Refresh
+          </button>
+        </div>
+
+        <p id="scheduleMessage" class="muted"
+           role="status"></p>
+        <div id="appointmentList"></div>
+      </section>
+
+      <section class="booking-card">
+        <h3>Block Unavailable Time</h3>
+        <p class="muted">
+          Set lunch breaks or personal unavailable times.
+        </p>
+
+        <form id="blockForm">
+          <div class="form-columns">
+            <div>
+              <label for="blockStart">From</label>
+              <select id="blockStart" required></select>
+            </div>
+            <div>
+              <label for="blockEnd">To</label>
+              <select id="blockEnd" required></select>
+            </div>
+          </div>
+
+          <label for="blockReason">Reason</label>
+          <select id="blockReason">
+            <option>Lunch break</option>
+            <option>Personal work</option>
+            <option>Unavailable</option>
+            <option>Other</option>
+          </select>
+
+          <button type="submit"
+                  class="primary full-button">
+            Block This Time
+          </button>
+          <p id="blockMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="booking-card">
+        <h3>Blocked Times</h3>
+        <div id="blockedList"></div>
+      </section>
+
+    </section>
+  </main>
+
+  <footer>Pragnesh's Salon · Private Admin Area</footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Pragnesh's Salon | Book Online</title>
+  <link rel="stylesheet" href="style.css">
+  
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="supabase-config.js"></script>
+<script defer src="script.js"></script>
+<script defer src="manage.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="brand">
+        <span class="brand-icon">✂</span>
+        <div>
+          <h1>Pragnesh's Salon</h1>
+          <small>Fresh cuts. Easy bookings.</small>
+        </div>
+      </div>
+      <span class="header-label">BOOK ONLINE</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">WELCOME TO PRAGNESH'S SALON</span>
+      <h2>Your Next Fresh Look Starts Here.</h2>
+      <p>Choose your service, find a convenient time,
+         and book your next visit in minutes.</p>
+    </section>
+
+    <section class="booking-card">
+      <div class="steps">
+        <span class="active" id="stepLabel1">1. Service</span>
+        <span id="stepLabel2">2. Date & Time</span>
+        <span id="stepLabel3">3. Details</span>
+      </div>
+
+      <div id="step1" class="step">
+        <h3>Choose your service</h3>
+        <p class="muted">What would you like today?</p>
+
+        <div class="services">
+          <button class="service selected"
+                  data-service="Haircut" data-duration="15">
+            <span>✂ &nbsp; Haircut</span>
+            <small>15 minutes</small>
+          </button>
+
+          <button class="service"
+                  data-service="Beard Trim" data-duration="15">
+            <span>◇ &nbsp; Beard Trim</span>
+            <small>15 minutes</small>
+          </button>
+
+          <button class="service"
+                  data-service="Haircut + Beard" data-duration="30">
+            <span>✦ &nbsp; Haircut + Beard</span>
+            <small>30 minutes</small>
+          </button>
+        </div>
+
+        <button class="primary" id="serviceNext">
+          Choose Date & Time →
+        </button>
+      </div>
+
+      <div id="step2" class="step hidden">
+        <h3>Select date & time</h3>
+        <p class="muted" id="selectedService"></p>
+
+        <label for="bookingDate">Appointment date</label>
+        <input type="date" id="bookingDate">
+
+        <h4>Available time slots</h4>
+        <div class="time-grid" id="timeSlots"></div>
+
+        <div class="actions">
+          <button class="secondary" id="back1">Back</button>
+          <button class="primary" id="timeNext" disabled>
+            Continue →
+          </button>
+        </div>
+      </div>
+
+      <div id="step3" class="step hidden">
+        <h3>Your details</h3>
+        <p class="summary" id="bookingSummary"></p>
+
+        <form id="bookingForm">
+          <label for="customerName">Full name *</label>
+          <input id="customerName" type="text"
+                 autocomplete="name" required
+                 placeholder="Enter your name">
+
+          <label for="mobile">Mobile number *</label>
+          <input id="mobile" type="tel"
+                 autocomplete="tel" required
+                 placeholder="e.g. 0412 345 678">
+
+          <label for="email">Email (optional)</label>
+          <input id="email" type="email"
+                 autocomplete="email"
+                 placeholder="name@example.com">
+
+          <div class="actions">
+            <button class="secondary" id="back2"
+                    type="button">Back</button>
+            <button class="primary" type="submit">
+              Confirm Booking
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div id="success" class="step hidden">
+        <div class="success-icon">✓</div>
+        <h3>Booking Preview Complete!</h3>
+        <p id="successMessage"></p>
+        <p class="muted">
+          Demo only: no appointment has been saved
+          and no notification has been sent.
+        </p>
+        <button class="primary" id="startAgain">
+          Make Another Booking
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © Pragnesh's Salon · Made with care
+  </footer>
+</body>
+</html>
